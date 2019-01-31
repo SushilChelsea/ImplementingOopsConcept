@@ -1,9 +1,10 @@
-package org.sushil;
+package org.sushil.person;
 
+import org.sushil.Address;
 /**
  * Created by Sushil on Jan, 2019
  */
-public class Person {
+public abstract class Person {
     private String firstName;
     private String lastName;
     private int citizenshipNumber;
