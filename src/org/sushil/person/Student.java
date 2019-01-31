@@ -22,6 +22,6 @@ public class Student extends Person{
     }
 
     public String toString() {
-        return "Student" + "\n---------" +"\nRoll No:- " + this.rollNo + "\n"+ super.toString();
+        return "Student" + "\n-----------" +"\nRoll No:- " + this.rollNo + "\n"+ super.toString();
     }
 }

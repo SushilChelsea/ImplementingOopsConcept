@@ -1,77 +1,57 @@
 package org.sushil;
 
+import org.sushil.faculty.Software;
+import org.sushil.person.DepartmentHead;
 import org.sushil.person.Student;
 import org.sushil.person.Teacher;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        // creating person object with specific address object
-        /*
+        // creating address object
         Address ad1 = new Address("Baker street 21", "London", "England");
-        Teacher t1 = new Teacher("Alex", "Geece", 5129, ad1, "Department Head");
+        Address ad2 = new Address("Cannor Street 201", "London", "England");
+        Address ad3 = new Address("Chancery Lane 101", "London", "England");
+        Teacher t1 = null, t2 = null, t3 = null;
+        DepartmentHead hd = null;
+        try {
+            t1 = new Teacher("Alex", "Geece", 5129, ad1, "Senior Lecture");
+            t2 = new Teacher("John", "Jones", 5139, ad2, "Associate Lecture");
+            t3 = new Teacher("David", "Luiz", 5149, ad3, "Associate Lecture");
+        } catch (Exception e) {
+            System.out.println("Teacher Position can't be initialized to Department Head.");;
+        } finally {
+            hd = new DepartmentHead("Frank", "Lampard", 5147, ad1);
+            hd.addTeacher(t1);
+            hd.addTeacher(t2);
+            hd.addTeacher(t3);
 
-        Student s1 = new Student("Brad", "Traversy", 5529, ad1, 1001);
-        System.out.println("---------------------------------------------");
-        System.out.println(t1.toString());
-        System.out.println("---------------------------------------------");
-        System.out.println(s1.toString());
-        System.out.println("---------------------------------------------");
-
-        */
-        Scanner input = new Scanner(System.in);
-        // how many teacher user want to enter
-        System.out.print("How many Teacher do you want to add? ");
-        int teacherNo = input.nextInt();
-        // variable declaration and initialization
-        int count = 0;
-        String firstName="";
-        String lastName="";
-        int citizenNo=0;
-        String street="", city="", country="";
-        Teacher[] t = new Teacher[teacherNo];
-        Address [] ad = new Address[teacherNo];
-        String [] position = new String[teacherNo];
-
-        // continue loop until user input details about all teachers
-        while (count < teacherNo) {
-            System.out.print("Enter Teacher First-name ? ");
-            firstName = input.next();
-            System.out.print("Enter Teacher Last-name ? ");
-            lastName = input.next();
-            System.out.print("Enter Teacher Citizenship Number ? ");
-            citizenNo = input.nextInt();
-            // while user input invalid citizen number keep prompting to enter valid number
-            while (citizenNo <= 0) {
-                System.out.print("Enter valid Citizenship Number : ");
-                citizenNo = input.nextInt();
-            }
-            /*
-             * That's because the Scanner.nextInt method does not read the newline character
-             * in your input created by hitting "Enter," and so the call to Scanner.nextLine returns
-             * after reading that newline.
-             */
-            input.nextLine();
-            System.out.print("Position:- ");
-            position[count] = input.nextLine();
-            System.out.println("Address");
-            System.out.print("Street: ");
-            street = input.nextLine();
-            System.out.print("City: ");
-            city = input.nextLine();
-            System.out.print("Country: ");
-            country = input.nextLine();
-            ad[count] = new Address(street, city, country);
-            t[count] = new Teacher(firstName, lastName, citizenNo, ad[count], position[count]);
-            count++; // incrementing count, so that loop exits at one point
         }
 
-        for (int i = 0; i < teacherNo; i++) {
-            System.out.println("---------------------------------------------");
-            System.out.println(t[i].toString());
-            System.out.println("---------------------------------------------");
-        }
+        Student s1 = new Student("Brad", "Traversy", 5789, ad1, 1001);
+        Student s2 = new Student("Birat", "Avatar", 5634, ad2, 1002);
+        Student s3 = new Student("Krishna", "Das", 5476, ad3,  1003);
+
+        Software sf = new Software("Software Department",  hd);
+        sf.addStudents(s1);
+        sf.addStudents(s2);
+        sf.addStudents(s3);
+        System.out.println(sf.getFacultyName());
+        System.out.println("------------------");
+        sf.getDh().totalTeam();
+        System.out.println();
+        System.out.println("---------------");
+        sf.displayStudents();
+
+//        System.out.println("---------------------------------------------");
+//        System.out.println(t1.toString());
+//        System.out.println("---------------------------------------------");
+//        System.out.println(s1.toString());
+//        System.out.println("---------------------------------------------");
+
+
     }
 }
