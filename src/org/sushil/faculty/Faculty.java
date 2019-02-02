@@ -1,5 +1,6 @@
 package org.sushil.faculty;
 
+import org.sushil.person.DepartmentHead;
 import org.sushil.person.Student;
 import org.sushil.person.Teacher;
 
@@ -10,6 +11,7 @@ import java.util.ArrayList;
  */
 public abstract class Faculty {
     private String facultyName;
+    private DepartmentHead dh;
 //    private ArrayList<Teacher> teachers = new ArrayList<>();
     private ArrayList<Student> students = new ArrayList<>();
 
@@ -35,6 +37,10 @@ public abstract class Faculty {
 
     public void addStudents(Student student) {
         students.add(student);
+    }
+
+    public DepartmentHead getDh() {
+        return dh;
     }
 
     public ArrayList<Student> getStudents() {

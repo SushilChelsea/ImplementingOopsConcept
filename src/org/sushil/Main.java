@@ -39,12 +39,27 @@ public class Main {
         sf.addStudents(s1);
         sf.addStudents(s2);
         sf.addStudents(s3);
+        /*
         System.out.println(sf.getFacultyName());
         System.out.println("------------------");
         sf.getDh().totalTeam();
         System.out.println();
         System.out.println("---------------");
         sf.displayStudents();
+        */
+        College college = new College(sf);
+        System.out.println();
+        System.out.println("College: " + college.getCollegeName());
+        System.out.println();
+        System.out.println(college.getFaculty().getFacultyName());
+        System.out.println("------------------");
+        college.getFaculty().getDh().totalTeam();
+//        sf.getDh().totalTeam();
+        System.out.println();
+        System.out.println("---------------");
+        college.getFaculty().displayStudents();
+//        sf.displayStudents();
+
 
 //        System.out.println("---------------------------------------------");
 //        System.out.println(t1.toString());
